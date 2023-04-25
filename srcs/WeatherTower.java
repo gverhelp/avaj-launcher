@@ -1,13 +1,10 @@
-public class WeatherTower extends Tower 
-{
-    public String getWeather(Coordinates p_coordinates)
-    {
+public class WeatherTower extends Tower {
+    public String getWeather(Coordinates p_coordinates) {
         // To do...
-        return "lol";
+        return null;
     }
 
-    public void changeWeather()
-    {
+    public void changeWeather() {
         // To do...
     }
 }

@@ -1,13 +1,9 @@
-public abstract class Flyable
-{
+public interface Flyable {
     // Protected attributes
     protected WeatherTower weatherTower;
 
     public abstract void updateConditions();
 
-    // Public moethods
-    public registerTower(WeatherTower[] p_tower)
-    {
-        // To do...
-    }
+    // Public methods
+    public void registerTower(WeatherTower[] p_tower);
 }

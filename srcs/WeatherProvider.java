@@ -1,18 +1,15 @@
-public class WeatherProvider
-{
+public class WeatherProvider {
     // Private attributes
     private String[] weather;
 
     // Constructor method (Private)
-    private WeatherProvider()
-    {
+    private WeatherProvider() {
         // To do...
     }
 
     // Public methods
-    public String getCurrentWeather(Coordinates p_coordinates)
-    {
+    public String getCurrentWeather(Coordinates p_coordinates) {
         // To do...
-        return "lol";
+        return null;
     }
 }

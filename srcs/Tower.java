@@ -1,24 +1,20 @@
 import java.util.List;
 
-public class Tower
-{
+public class Tower {
     // Protected attributes
     private List<Flyable[]> observers;
 
     // Protected methods
-    protected void conditionChanged()
-    {
+    protected void conditionChanged() {
         // To do...
     }
 
     // Public methods
-    public void register(Flyable[] p_flyable)
-    {
+    public void register(Flyable[] p_flyable) {
         // To do...
     }
 
-    public void unregister(Flyable[] p_flyable)
-    {
+    public void unregister(Flyable[] p_flyable) {
         // To do....
     }
 }
