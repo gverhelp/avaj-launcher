@@ -33,6 +33,9 @@ public class Simulator {
                     int runs = Integer.parseInt(tokens[0]);
                 }
                 else if (tokens[0].equals("Baloon") || tokens[0].equals("JetPlane") || tokens[0].equals("Helicopter")) {
+                    if (tokens.length != 5)
+                        throw new Exception("Too much or not enough informations in file.");
+
                     int longitude = Integer.parseInt(tokens[2]);
                     int latitude = Integer.parseInt(tokens[3]);
                     int height = Integer.parseInt(tokens[4]);
