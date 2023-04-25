@@ -14,9 +14,9 @@ public class Coordinates
     }
 
     // Public methods
-    public int getLongitude() { return this.longitude }
+    public int getLongitude() { return this.longitude; }
 
-    public int getLatitude() { return this.latitude }
+    public int getLatitude() { return this.latitude; }
 
-    public int getHeight() { return this.height }
+    public int getHeight() { return this.height; }
 }

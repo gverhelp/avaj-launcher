@@ -4,11 +4,15 @@ public class WeatherProvider
     private String[] weather;
 
     // Constructor method (Private)
-    private WeatherProvider();
-
-    // Public methods
-    public String getCurrentWeather(Coordinate p_coordinates)
+    private WeatherProvider()
     {
         // To do...
+    }
+
+    // Public methods
+    public String getCurrentWeather(Coordinates p_coordinates)
+    {
+        // To do...
+        return "lol";
     }
 }

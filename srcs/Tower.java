@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Tower
 {
     // Protected attributes
@@ -10,12 +12,12 @@ public class Tower
     }
 
     // Public methods
-    public void register(Flyable* p_flyable)
+    public void register(Flyable[] p_flyable)
     {
         // To do...
     }
 
-    public void unregister(Flyable* p_flyable)
+    public void unregister(Flyable[] p_flyable)
     {
         // To do....
     }
