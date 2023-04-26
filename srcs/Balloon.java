@@ -4,6 +4,13 @@ public class Balloon extends Aircraft {
     }
 
     public void updateConditions() {
-        // To do...
+        String weather = WeatherTower.getWeather();
+        // switch ()
     }
 }
+
+
+// ◦ SUN - Longitude increases with 2, Height increases with 4
+// ◦ RAIN - Height decreases with 5
+// ◦ FOG - Height decreases with 3
+// ◦ SNOW - Height decreases with 15

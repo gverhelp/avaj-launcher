@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,6 +12,7 @@ public class Simulator {
             System.err.println("Error : Too much or not enough arguments are given.");
             System.exit(1);
         }
+
 
         String fileName = args[0];
         File file = new File(fileName);
@@ -28,15 +28,15 @@ public class Simulator {
     public static void parseFile(File file) {
         try (Scanner scanner = new Scanner(file)) {
 
-            int countLines = 0;
+            int countLines = -1;
             ArrayList<Flyable[]> myFlyableArray = new ArrayList<Flyable[]>();
 
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] tokens = line.split(" ");
+                countLines++;
 
                 if (countLines == 0) {
-                    countLines++;
                     if (tokens.length != 1 || line.length() == 0) {
                         scanner.close();
                         throw new Exception("Error : The number of simulation is not correct."); 
@@ -44,8 +44,6 @@ public class Simulator {
                     numberOfRun = Integer.parseInt(tokens[0]);
                 }
                 else if (tokens[0].equals("Baloon") || tokens[0].equals("JetPlane") || tokens[0].equals("Helicopter")) {
-                    countLines++;
-
                     if (tokens.length != 5) {
                         scanner.close();
                         throw new Exception("Error : Too much or not enough information in the scenario file.");

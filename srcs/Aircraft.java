@@ -20,4 +20,16 @@ public class Aircraft implements Flyable {
     public void registerTower(WeatherTower[] p_tower) {
         throw new UnsupportedOperationException("Unimplemented method 'registerTower'");
     }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getCoordinates() {
+        return this.coordinates;
+    }
 }
