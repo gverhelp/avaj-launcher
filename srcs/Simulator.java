@@ -1,12 +1,16 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Simulator {
+    public static int numberOfRun;
+
     public static void main(String[] args) {
 
         if (args.length != 1) {
-            System.err.println("Not enough arguments are given.");
+            System.err.println("Error : Too much or not enough arguments are given.");
             System.exit(1);
         }
 
@@ -16,10 +20,16 @@ public class Simulator {
         parseFile(file);
     }
 
+    // public static void launch(String type, String name, Coordinates coordinates) {
+    //     AircraftFactory myFactory = new AircraftFactory();
+    //     myFactory.newAircraft(type, name, coordinates);
+    // }
+
     public static void parseFile(File file) {
         try (Scanner scanner = new Scanner(file)) {
 
             int countLines = 0;
+            ArrayList<Flyable[]> myFlyableArray = new ArrayList<Flyable[]>();
 
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
@@ -28,35 +38,54 @@ public class Simulator {
                 if (countLines == 0) {
                     countLines++;
                     if (tokens.length != 1 || line.length() == 0) {
-                        throw new Exception("Number of simulation error."); 
+                        scanner.close();
+                        throw new Exception("Error : The number of simulation is not correct."); 
                     }
-                    int runs = Integer.parseInt(tokens[0]);
+                    numberOfRun = Integer.parseInt(tokens[0]);
                 }
                 else if (tokens[0].equals("Baloon") || tokens[0].equals("JetPlane") || tokens[0].equals("Helicopter")) {
-                    if (tokens.length != 5)
-                        throw new Exception("Too much or not enough informations in file.");
+                    countLines++;
+
+                    if (tokens.length != 5) {
+                        scanner.close();
+                        throw new Exception("Error : Too much or not enough information in the scenario file.");
+                    }
 
                     int longitude = Integer.parseInt(tokens[2]);
                     int latitude = Integer.parseInt(tokens[3]);
                     int height = Integer.parseInt(tokens[4]);
-                    countLines++;
 
-                    if (longitude < 0 || latitude < 0 || height < 0)
-                        throw new Exception("Coordinates error.");
+                    if (longitude < 0 || latitude < 0 || height < 0) {
+                        scanner.close();
+                        throw new Exception("Error : Coordinates are not correct.");
+                    }
+
                     if (height > 100)
                         height = 100;
 
                     Coordinates coordinates = new Coordinates(longitude, latitude, height);
+                    AircraftFactory myFactory = new AircraftFactory();
+
+                    myFlyableArray.add(myFactory.newAircraft(tokens[0], tokens[1], coordinates));
+                    //launch(tokens[0], tokens[1], coordinates);
                 }
                 else {
-                    throw new Exception("Type error.");
+                    scanner.close();
+                    throw new Exception("Error : Type is not correct.");
                 }
             }
+
+            // for (Flyable[] aircrafts : myFlyableArray) {
+            //     for (Flyable aircraft : aircrafts) {
+            //         System.out.println(aircraft);
+            //     }
+            // }
+
             scanner.close();
         } catch (FileNotFoundException e) {
-            System.out.println("File name error.");
+            System.err.println("Error : File name is not correct.");
         } catch (Exception e) {
-            System.out.print(e.getMessage());
+            System.err.print(e.getMessage());
         }
     }
 }

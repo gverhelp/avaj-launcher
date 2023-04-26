@@ -1,6 +1,6 @@
 public interface Flyable {
     // Protected attributes
-    protected WeatherTower weatherTower;
+    //protected WeatherTower weatherTower;
 
     public abstract void updateConditions();
 

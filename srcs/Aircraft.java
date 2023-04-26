@@ -20,5 +20,4 @@ public class Aircraft implements Flyable {
     public void registerTower(WeatherTower[] p_tower) {
         throw new UnsupportedOperationException("Unimplemented method 'registerTower'");
     }
-
 }
