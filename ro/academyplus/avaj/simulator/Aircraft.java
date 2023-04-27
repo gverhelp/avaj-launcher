@@ -15,4 +15,16 @@ public abstract class Aircraft extends Flyable {
 
     @Override
     public abstract void updateConditions();
+
+    @Override
+    public abstract long getId();
+
+    @Override
+    public abstract String getType();
+
+    @Override
+    public abstract String getName();
+
+    @Override
+    public abstract Coordinates getCoordinates();
 }
