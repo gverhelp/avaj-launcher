@@ -1,3 +1,5 @@
+package ro.academyplus.avaj.simulator;
+
 public class Coordinates {
     // Private attributes
     private int longitude;
@@ -22,5 +24,17 @@ public class Coordinates {
 
     public int getHeight() {
         return this.height;
+    }
+
+    public void setLongitude(int p_longitude) {
+        this.longitude = p_longitude;
+    }
+
+    public void setLatitute(int p_latitude) {
+        this.latitude = p_latitude;
+    }
+
+    public void setHeight(int p_height) {
+        this.height = p_height > 100 ? 100 : p_height;
     }
 }
