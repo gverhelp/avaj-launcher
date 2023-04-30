@@ -1,9 +1,11 @@
 package ro.academyplus.avaj.simulator;
 
 public abstract class Flyable {
+
     // Protected attributes
     protected WeatherTower weatherTower;
 
+    // Public methods (Abstract)
     public abstract void updateConditions();
 
     // Public methods

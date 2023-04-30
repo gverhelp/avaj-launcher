@@ -1,10 +1,13 @@
 package ro.academyplus.avaj.simulator;
 
 public class Balloon extends Aircraft {
+
+    // Public Constructor
     public Balloon(long p_id, String p_name, Coordinates p_coordinates) {
         super(p_id, p_name, p_coordinates);
     }
 
+    // Public methods
     public void updateConditions() {
         String weather = weatherTower.getWeather(super.coordinates);
         int superHeight = super.coordinates.getHeight();
@@ -13,24 +16,25 @@ public class Balloon extends Aircraft {
         switch (weather) {
             case "RAIN":
                 super.coordinates.setHeight(superHeight - 5);
-                System.out.println("Balloon#" + super.name + "(" + super.id + ")" + ": Rain");
+                System.out.println("Balloon#" + super.name + "(" + super.id + ")" + ": Why do cows love the rain? Because it's udderly refreshing!");
                 break;
             case "FOG":
                 super.coordinates.setHeight(superHeight - 3);
-                System.out.println("Balloon#" + super.name + "(" + super.id + ")" + ": Fog");
+                System.out.println("Balloon#" + super.name + "(" + super.id + ")" + ": Why did the fog go to school? To get a higher degree!");
                 break;
             case "SUN":
                 super.coordinates.setHeight(superHeight + 4);
                 super.coordinates.setLongitude(superLongitude + 2);
-                System.out.println("Balloon#" + super.name + "(" + super.id + ")" + ": Sun");
+                System.out.println("Balloon#" + super.name + "(" + super.id + ")" + ": Why did the sun go to school? To get brighter!");
                 break;
             case "SNOW":
                 super.coordinates.setHeight(superHeight - 15);
-                System.out.println("Balloon#" + super.name + "(" + super.id + ")" + ": Snow");
+                System.out.println("Balloon#" + super.name + "(" + super.id + ")" + ": Why was the math book sad on a snow day? Because it had too many problems!");
                 break;
         }
     }
 
+    // Public methods (Override)
     @Override
     public long getId() {
         return super.id;

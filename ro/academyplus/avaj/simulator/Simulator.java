@@ -14,13 +14,11 @@ public class Simulator {
 
     private static int ERROR = 1;
     private static int numberOfRun;
-    private static List<Flyable> flyableArray= new ArrayList<Flyable>();
+    private static List<Flyable> flyableArray = new ArrayList<Flyable>();
 
     private static void launch() {
 
         WeatherTower weatherTower = new WeatherTower();
-
-        System.out.println("Number of run : " + numberOfRun);
 
         for (Flyable aircraft : flyableArray) {
 
@@ -28,22 +26,14 @@ public class Simulator {
             aircraft.registerTower(weatherTower);
         }
 
-        System.out.println("<----- Start simulation ----->");
-
-        for (int a = 1; a <= numberOfRun; a++) {
-            System.out.println("<----- Run " + a + " ----->");
-
+        for (int a = 0; a < numberOfRun; a++)
             weatherTower.changeWeather();
-
-            System.out.println("--------------------");
-        }
-
-        System.out.println("<----- End of the simulation ----->");
     }
 
     private static void parseFile(String fileName) throws MyException {
         try {
             List<String> lines = Files.readAllLines(Paths.get(fileName));
+            AircraftFactory myFactory = new AircraftFactory();
 
             if (lines.isEmpty())
                 throw new MyException("Error : File is empty.");
@@ -72,12 +62,11 @@ public class Simulator {
                         height = 100;
 
                     Coordinates coordinates = new Coordinates(longitude, latitude, height);
-                    AircraftFactory myFactory = new AircraftFactory();
 
                     flyableArray.add(myFactory.newAircraft(tokens[0], tokens[1], coordinates));
                 }
                 else
-                    throw new MyException("Error : Type is not correct.");
+                    throw new MyException("Error : Aircraft type is not correct.");
             }
 
         } catch (InvalidPathException e) {
@@ -100,17 +89,17 @@ public class Simulator {
 
         String fileName = new String(args[0]);
 
-            try {
-                PrintStream out = new PrintStream(new FileOutputStream("simulation.txt"));
-                System.setOut(out);
-            
-                parseFile(fileName);
-                launch();
+        try {
+            PrintStream out = new PrintStream(new FileOutputStream("simulation.txt"));
+            System.setOut(out);
+        
+            parseFile(fileName);
+            launch();
 
-            } catch (FileNotFoundException e) {
-                System.out.println("Error : File not found.");
-            } catch (MyException e) {
-                System.out.println(e.getMessage());
-            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Error : File not found.");
+        } catch (MyException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
