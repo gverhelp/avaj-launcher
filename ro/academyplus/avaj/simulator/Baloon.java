@@ -1,9 +1,9 @@
 package ro.academyplus.avaj.simulator;
 
-public class Balloon extends Aircraft {
+public class Baloon extends Aircraft {
 
     // Public Constructor
-    public Balloon(long p_id, String p_name, Coordinates p_coordinates) {
+    public Baloon(long p_id, String p_name, Coordinates p_coordinates) {
         super(p_id, p_name, p_coordinates);
     }
 
@@ -16,20 +16,20 @@ public class Balloon extends Aircraft {
         switch (weather) {
             case "RAIN":
                 super.coordinates.setHeight(superHeight - 5);
-                System.out.println("Balloon#" + super.name + "(" + super.id + ")" + ": Why do cows love the rain? Because it's udderly refreshing!");
+                System.out.println("Baloon#" + super.name + "(" + super.id + ")" + ": Why do cows love the rain? Because it's udderly refreshing!");
                 break;
             case "FOG":
                 super.coordinates.setHeight(superHeight - 3);
-                System.out.println("Balloon#" + super.name + "(" + super.id + ")" + ": Why did the fog go to school? To get a higher degree!");
+                System.out.println("Baloon#" + super.name + "(" + super.id + ")" + ": Why did the fog go to school? To get a higher degree!");
                 break;
             case "SUN":
                 super.coordinates.setHeight(superHeight + 4);
                 super.coordinates.setLongitude(superLongitude + 2);
-                System.out.println("Balloon#" + super.name + "(" + super.id + ")" + ": Why did the sun go to school? To get brighter!");
+                System.out.println("Baloon#" + super.name + "(" + super.id + ")" + ": Why did the sun go to school? To get brighter!");
                 break;
             case "SNOW":
                 super.coordinates.setHeight(superHeight - 15);
-                System.out.println("Balloon#" + super.name + "(" + super.id + ")" + ": Why was the math book sad on a snow day? Because it had too many problems!");
+                System.out.println("Baloon#" + super.name + "(" + super.id + ")" + ": Why was the math book sad on a snow day? Because it had too many problems!");
                 break;
         }
     }
@@ -42,7 +42,7 @@ public class Balloon extends Aircraft {
 
     @Override
     public String getType() {
-        return "Balloon";
+        return "Baloon";
     }
 
     @Override

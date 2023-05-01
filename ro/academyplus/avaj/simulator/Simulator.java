@@ -44,7 +44,7 @@ public class Simulator {
 
                 if (a == 0) {
                     if (tokens.length != 1 || lines.get(a).length() == 0)
-                        throw new MyException("Error : The number of simulation is not correct.");
+                        throw new MyException("Error : The number of run is missing or not correct.");
                     numberOfRun = Integer.parseInt(tokens[0]);
                 }
                 else if (tokens[0].equals("Baloon") || tokens[0].equals("JetPlane") || tokens[0].equals("Helicopter")) {
@@ -56,7 +56,7 @@ public class Simulator {
                     int height = Integer.parseInt(tokens[4]);
 
                     if (longitude < 0 || latitude < 0 || height < 0)
-                        throw new MyException("Error : Coordinates are not correct.");
+                        throw new MyException("Error : Coordinates can not be negative.");
 
                     if (height > 100)
                         height = 100;
@@ -72,7 +72,7 @@ public class Simulator {
         } catch (InvalidPathException e) {
             throw new MyException("Error : File name is not correct.");
         } catch (NumberFormatException e) {
-            throw new MyException("Error : Characters are not valid for coordinates.");
+            throw new MyException("Error : Some characters are not valid.");
         } catch (IOException e) {
             throw new MyException("Error : Path of the scenario file is not correct.");
         } catch (MyException e) {

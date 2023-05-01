@@ -10,7 +10,7 @@ public class AircraftFactory {
 
         id++;
         if (p_type.equals("Baloon"))
-            return new Balloon(id, p_name, p_coordinates);
+            return new Baloon(id, p_name, p_coordinates);
         else if (p_type.equals("JetPlane"))
             return  new JetPlane(id, p_name, p_coordinates);
         else if (p_type.equals("Helicopter"))
