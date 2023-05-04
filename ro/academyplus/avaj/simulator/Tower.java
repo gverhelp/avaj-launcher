@@ -16,6 +16,7 @@ public class Tower {
 
             if (observers.get(b).getCoordinates().getHeight() <= 0) {
                 unregister(observers.get(b));
+                b--;
             }
         }
     }
